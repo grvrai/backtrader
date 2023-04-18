@@ -532,6 +532,11 @@ class Strategy(with_metaclass(MetaStrategy, StrategyBase)):
                 break
 
             if exbit.closed:
+                if trade.isclosed:
+                    trade = Trade(data=tradedata, tradeid=order.tradeid,
+                                  historyon=self._tradehistoryon)
+                    datatrades.append(trade)
+
                 trade.update(order,
                              exbit.closed,
                              exbit.price,
