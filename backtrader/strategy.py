@@ -526,8 +526,7 @@ class Strategy(with_metaclass(MetaStrategy, StrategyBase)):
             trade = datatrades[-1]
 
         for exbit in order.executed.iterpending():
-            print('exbit: %s' % exbit)
-            print(exbit.opened, exbit.closed, exbit.price, exbit.value, exbit.comm)
+
             if exbit is None:
                 break
 
